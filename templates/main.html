@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>{% block title %}Мир Сладкоежки{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            padding-top: 70px; /* отступ под фиксированную шапку */
+            background: #f8f9fa;
+        }
+        .navbar-brand {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .navbar-nav .nav-link {
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        .navbar-nav .nav-link i {
+            margin-right: 20px;
+            font-size: 1.1em;
+            vertical-align: middle;
+        }
+        .main-container {
+            max-width: 1200px;
+        }
+        .demo-card {
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: transform 0.1s ease;
+        }
+    </style>
+
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+<!-- Шапка "main" -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top py-2">
+    <div class="container">
+        <!-- Название сайта (кондитерской) -->
+        <a class="navbar-brand" href="{{ url_for('main') }}">
+            <span class="fw-bold">Мир Сладкоежки</span>
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-lg-center">
+                <!-- О нас -->
+                <li class="nav-item">
+                    <a class="nav-link {% if active_page == 'about' %}active{% endif %}" href="{{ url_for('about') }}">О нас</a>
+                </li>
+                <!-- Каталог -->
+                <li class="nav-item">
+                    <a class="nav-link {% if active_page == 'catalog' %}active{% endif %}" href="{{ url_for('catalog') }}">Каталог</a>
+                </li>
+                <!-- Контакты -->
+                <li class="nav-item">
+                    <a class="nav-link {% if active_page == 'contacts' %}active{% endif %}" href="{{ url_for('contacts') }}">Контакты</a>
+                </li>
+                <!-- Корзина -->
+                <li class="nav-item">
+                    <a class="nav-link position-relative {% if active_page == 'cart' %}active{% endif %}" href="{{ url_for('cart') }}">Корзина</a>
+                </li>
+                <!-- Профиль -->
+                <li class="nav-item">
+                    <a class="nav-link {% if active_page == 'profile' %}active{% endif %}" href="{{ url_for('profile') }}">Профиль</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main>
+    {% block content %}
+    <!-- Тут каждая страница по отдельности -->
+    {% endblock %}
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
