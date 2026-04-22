@@ -3,5 +3,138 @@
 {% block title %}Главная страница{% endblock %}
 
 {% block content %}
-<p>Главная страница</p>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+
+        .carousel {
+            background-color: #de98dc;
+        }
+
+        .carousel-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .carousel-content img {
+            width: auto;
+            height: 250px;
+  
+        }
+
+        .carousel-text {
+            max-width: 400px;
+        }
+
+        .carousel-text h3 {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="30000">
+
+    <!-- Индикаторы -->
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
+    </div>
+
+    <div class="carousel-inner">
+
+        <!-- Слайд 1 -->
+        <div class="carousel-item active">
+            <div class="carousel-content">
+                <img src="{{ url_for('static', filename='img/cake0.png') }}">
+                <div class="carousel-text">
+                    <h3>Дни рождения с нами!</h3>
+                    <p>Празднуйте дни рождения с нами, ведь скидка в эти дни 20%!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 2 -->
+        <div class="carousel-item">
+            <div class="carousel-content">
+                <img src="{{ url_for('static', filename='img/test.jpg') }}">
+                <div class="carousel-text">
+                    <h3>Скидка на выпечку!</h3>
+                    <p>После 20:00 скидка на выпечку, подробнее уточняйте на кассе.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 3 -->
+        <div class="carousel-item">
+            <div class="carousel-content">
+                <img src="{{ url_for('static', filename='img/test.jpg') }}">
+                <div class="carousel-text">
+                    <h3>Конфеты на заказ!</h3>
+                    <p>Заказывайте конфеты по вашим пожеланиям у нас! <strong>См. каталог подробнее</strong></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Стрелки -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+
+</div>
+
+<div class="container text-center mt-5">
+    <h2 class="mb-4">Наши лучшие предложения</h2>
+
+    <!-- Карточки -->
+    <div class="row justify-content-center">
+
+        <!-- Карточка 1 -->
+        <div class="col-md-4 d-flex justify-content-center">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ url_for('static', filename='img/test.jpg') }}">
+                <div class="card-body text-center">
+                    <p class="card-text">Черничный тарт</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Карточка 2 -->
+        <div class="col-md-4 d-flex justify-content-center">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ url_for('static', filename='img/test.jpg') }}">
+                <div class="card-body text-center">
+                    <p class="card-text">Меренговый рулет</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Карточка 3 -->
+        <div class="col-md-4 d-flex justify-content-center">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ url_for('static', filename='img/test.jpg') }}">
+                <div class="card-body text-center">
+                    <p class="card-text">Конфеты ручной работы</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 {% endblock %}
