@@ -2,6 +2,69 @@
 
 {% block title %}О нас{% endblock %}
 
+{% block extra_css %}
+<style>
+.hero {
+    width: 100%;
+    height: 45vh;
+
+    background-image: url('/static/img/aboutimg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    position: relative;
+    color: white;
+    text-align: center;
+}
+</style>
+{% endblock %}
+
 {% block content %}
-<p>страница о нас</p>
+
+<!-- шапка с изображением (или же hero section) -->
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="lead">Знакомим вас с новыми вкусами</h1>
+    </div>
+</section>
+
+<!-- Описание -->
+<div class="container main-container py-5">
+
+    <h2 class="mb-4">О нас</h2>
+
+    <p class="lead">
+        «Мир Сладкоежки» — это место, где создаются настоящие десертные шедевры.
+        Мы готовим торты, пирожные и сладости из свежих и натуральных ингредиентов,
+        чтобы радовать вас каждый день.
+    </p>
+
+    <p>
+        Наша команда — это профессиональные кондитеры, которые имеют многолетний опыт. Мы изобретаем новые десерты с необычным и запоминающимся вкусом,
+        и стремимся создавать не просто сладости, а настоящие эмоции.
+    </p>
+
+    <p>
+        У нас вы найдёте широкий ассортимент: от классических тортов до
+        авторских десертов. Мы также принимаем индивидуальные заказы
+        и готовы воплотить ваши идеи в жизнь.
+    </p>
+
+</div>
+
 {% endblock %}

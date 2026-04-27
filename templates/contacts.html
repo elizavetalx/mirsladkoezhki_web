@@ -1,0 +1,70 @@
+{% extends "main.html" %}
+
+{% block title %}Контакты{% endblock %}
+
+{% block content %}
+<div class="container main-container py-5">
+    <h2 class="text-center mb-5">Контакты</h2>
+    <div class="row">
+
+        <!-- контактная информация -->
+        <div class="col-md-5 mb-4">
+            <div class="card p-4 shadow-sm h-100">
+                <h4 class="mb-3">Свяжитесь с нами</h4>
+                <p><strong>Адрес:</strong><br>
+                г. Санкт-Петербург, ул. Автовская, 5</p>
+                <p><strong>Телефон:</strong><br>
+                +7(393)-239-67-52</p>
+                <p><strong>Email:</strong><br>
+                mir.sladkoezhki@gmail.com</p>
+                <hr>
+                <h5 class="mb-3">Мы в соцсетях</h5>
+                <div class="d-flex flex-column gap-2">
+                    <a href="https://max.ru" class="text-decoration-none"> MAX</a>
+                    <a href="https://vk.com" class="text-decoration-none"> VK</a>
+                    <a href="https://ok.ru" class="text-decoration-none"> Одноклассники</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- форма обратной связи -->
+        <div class="col-md-7">
+            <div class="card p-4 shadow-sm">
+                <h4 class="mb-4">Форма обратной связи</h4>
+                <form method="POST" action="{{ url_for('contacts') }}">
+                    <div class="mb-3">
+                        <label class="form-label">Ваше имя</label>
+                        <input type="text" name="name" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Причина обращения</label>
+                        <select name="reason" class="form-select" required>
+                            <option value="">Выберите причину</option>
+                            <option>Заказ</option>
+                            <option>Вопрос по товару</option>
+                            <option>Сотрудничество</option>
+                            <option>Жалоба</option>
+                            <option>Другое</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Сообщение</label>
+                        <textarea name="message" class="form-control" rows="4" required></textarea>
+                    </div>
+
+                    <button class="btn btn-primary w-100">
+                        Отправить
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
